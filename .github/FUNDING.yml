@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30 Practical Slips</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 15px; background: #f8f9fa; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 8px; }
+        h1 { color: #007bff; font-size: 24px; }
+        .controls { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        select, button { padding: 10px; font-size: 16px; border-radius: 5px; }
+        button { background: #28a745; color: white; border: none; cursor: pointer; }
+        .slip-title { color: #28a745; font-size: 20px; font-weight: bold; }
+        pre { background: #1e1e1e; color: #f8f8f2; padding: 12px; border-radius: 5px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Ekur 30 practical slips</h1>
+    
+    <div class="controls">
+        <!-- Slip Nivadnyasathi Dropdown Button -->
+        <select id="slipSelect" onchange="loadSlip()">
+            <!-- Slips Option dynamic padhatine add hoil -->
+        </select>
+
+        <button onclick="window.print()">Print / PDF Save</button>
+    </div>
+
+    <div id="slipContent">
+        <!-- Ithe निवडलेली Slip disel -->
+    </div>
+</div>
+
+<script>
+// Saglya 30 slips cha data ithe Object array madhe add kara
+const slipsData = {
+    1: {
+        title: "Slip 1",
+        section: "Section I: Data Structures-II",
+        question: "Q1) Implement a Binary search tree (BST) library (btree.h)...",
+        headerCode: `#include <stdio.h>\n#include <stdlib.h>\n\ntypedef struct Node {\n    int data;\n    struct Node *left, *right;\n} Node;`,
+        mainCode: `#include <stdio.h>\n#include "btree.h"\n\nint main() {\n    // Menu logic\n    return 0;\n}`
+    },
+    2: {
+        title: "Slip 2",
+        section: "Section I: Data Structures-II",
+        question: "Q1) Write Slip 2 Question Here...",
+        headerCode: `/* Header code for Slip 2 */`,
+        mainCode: `/* Main code for Slip 2 */`
+    }
+    // Tumhi ithe Slip 3 te Slip 30 cha data add karu shakata
+};
+
+// Dropdown madhye 1 te 30 Slips add karne
+const select = document.getElementById('slipSelect');
+for (let i = 1; i <= 30; i++) {
+    let opt = document.createElement('option');
+    opt.value = i;
+    opt.innerHTML = `Slip ${i}`;
+    select.appendChild(opt);
+}
+
+function loadSlip() {
+    const id = select.value;
+    const data = slipsData[id] || {
+        title: `Slip ${id}`,
+        section: "Section I: Data Structures-II",
+        question: `Question for Slip ${id} is pending...`,
+        headerCode: `// Code coming soon`,
+        mainCode: `// Code coming soon`
+    };
+
+    document.getElementById('slipContent').innerHTML = `
+        <div class="slip-title">${data.title}</div>
+        <p><strong>${data.section}</strong></p>
+        <p>${data.question}</p>
+        <h3>Header File</h3>
+        <pre><code>${data.headerCode}</code></pre>
+        <h3>Main File</h3>
+        <pre><code>${data.mainCode}</code></pre>
+    `;
+}
+
+// First slip load kara
+loadSlip();
+</script>
+
+</body>
+</html>
