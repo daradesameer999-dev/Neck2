@@ -1,10 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="mr">
 <head>
-    <title>My PDF</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Structures - II Practical Slips</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; color: #333; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #007bff; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
+        h2 { color: #28a745; margin-top: 20px; }
+        pre { background: #272822; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto; font-family: Consolas, monospace; }
+    </style>
 </head>
 <body>
-    <h1>My PDF</h1>
-    <iframe src="notes.pdf" width="100%" height="700px"></iframe>
+    <div class="container">
+        <h1>Ekur 30 practical slips dilya ahet. Pratek slip sathi question aani tyanchi uttar sodvun khali dili ahet.</h1>
+        
+        <h2>Slip 1</h2>
+        <p><strong>Section I: Data Structures-II</strong></p>
+        <p><strong>Q1) Implement a Binary search tree (BST) library (btree.h) with operations - create, search, insert, inorder, preorder and postorder. Write a menu driven program that performs the above operations.</strong></p>
+        
+        <h3>Header file (btree.h)</h3>
+        <pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+typedef struct Node {
+    int data;
+    struct Node *left, *right;
+} Node;
+
+Node* createNode(int val) {
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    newNode->data = val;
+    newNode->left = newNode->right = NULL;
+    return newNode;
+}
+
+Node* insert(Node* root, int val) {
+    if (root == NULL) return createNode(val);
+    if (val < root->data)
+        root->left = insert(root->left, val);
+    else if (val > root->data)
+        root->right = insert(root->right, val);
+    return root;
+}
+        </pre>
+    </div>
 </body>
 </html>
