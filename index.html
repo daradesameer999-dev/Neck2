@@ -3,49 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Structures - II Practical Slips</title>
+    <title>Ekur 30 Practical Slips</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; color: #333; }
-        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        h1 { color: #007bff; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
-        h2 { color: #28a745; margin-top: 20px; }
-        pre { background: #272822; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto; font-family: Consolas, monospace; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #212529;
+            padding: 15px;
+        }
+        .main-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .header-title {
+            color: #007bff;
+            font-size: 26px;
+            font-weight: 800;
+            line-height: 1.25;
+            margin-bottom: 20px;
+        }
+        .divider {
+            height: 2px;
+            background-color: #007bff;
+            margin-bottom: 25px;
+        }
+        .slip-card {
+            margin-bottom: 35px;
+        }
+        .slip-title {
+            color: #28a745;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+        .section-name {
+            font-size: 15px;
+            font-weight: bold;
+            color: #111;
+            margin-bottom: 15px;
+        }
+        .question-text {
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.4;
+            color: #111;
+            margin-bottom: 15px;
+        }
+        .sub-header {
+            font-size: 17px;
+            font-weight: bold;
+            color: #222;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            font-size: 13px;
+            line-height: 1.4;
+            overflow-x: auto;
+            margin-bottom: 15px;
+        }
+        code {
+            font-family: inherit;
+        }
+        .btn-container {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .pdf-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        @media print {
+            .btn-container { display: none; }
+            body { padding: 0; background: white; }
+            .main-container { box-shadow: none; max-width: 100%; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Ekur 30 practical slips dilya ahet. Pratek slip sathi question aani tyanchi uttar sodvun khali dili ahet.</h1>
+
+    <div class="btn-container">
+        <button class="pdf-btn" onclick="window.print()">Save as PDF / Print</button>
+    </div>
+
+    <div class="main-container">
         
-        <h2>Slip 1</h2>
-        <p><strong>Section I: Data Structures-II</strong></p>
-        <p><strong>Q1) Implement a Binary search tree (BST) library (btree.h) with operations - create, search, insert, inorder, preorder and postorder. Write a menu driven program that performs the above operations.</strong></p>
-        
-        <h3>Header file (btree.h)</h3>
-        <pre>
-#include &lt;stdio.h&gt;
+        <h1 class="header-title">
+            Ekur 30 practical slips dilya ahet. Pratek slip sathi question aani tyanchi uttar sodvun khali dili ahet.
+        </h1>
+        <div class="divider"></div>
+
+        <!-- SLIP 1 -->
+        <div class="slip-card">
+            <div class="slip-title">Slip 1</div>
+            <div class="section-name">Section I: Data Structures-II</div>
+            <div class="question-text">
+                Q1) Implement a Binary search tree (BST) library (btree.h) with operations - create, search, insert, inorder, preorder and postorder. Write a menu driven program that performs the above operations.
+            </div>
+
+            <div class="sub-header">Header file (btree.h)</div>
+<pre><code>#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 
 typedef struct Node {
     int data;
-    struct Node *left, *right;
+    struct Node *left;
+    struct Node *right;
 } Node;
 
-Node* createNode(int val) {
-    Node* newNode = (Node*)malloc(sizeof(Node));
-    newNode->data = val;
-    newNode->left = newNode->right = NULL;
-    return newNode;
-}
+/* BST logic code here */</code></pre>
 
-Node* insert(Node* root, int val) {
-    if (root == NULL) return createNode(val);
-    if (val < root->data)
-        root->left = insert(root->left, val);
-    else if (val > root->data)
-        root->right = insert(root->right, val);
-    return root;
-}
-        </pre>
+            <div class="sub-header">Main Program (main.c)</div>
+<pre><code>#include &lt;stdio.h&gt;
+#include "btree.h"
+
+int main() {
+    /* Menu driven code here */
+    return 0;
+}</code></pre>
+        </div>
+
+        <!-- SLIP 2 -->
+        <div class="slip-card">
+            <div class="slip-title">Slip 2</div>
+            <div class="section-name">Section I: Data Structures-II</div>
+            <div class="question-text">
+                Q1) Write your Slip 2 question text here...
+            </div>
+            <div class="sub-header">Program Code</div>
+<pre><code>/* Insert Slip 2 code here */</code></pre>
+        </div>
+
+        <!-- SLIP 3 -->
+        <div class="slip-card">
+            <div class="slip-title">Slip 3</div>
+            <div class="section-name">Section I: Data Structures-II</div>
+            <div class="question-text">
+                Q1) Write your Slip 3 question text here...
+            </div>
+            <div class="sub-header">Program Code</div>
+<pre><code>/* Insert Slip 3 code here */</code></pre>
+        </div>
+
+        <!-- SLIP 4 TE SLIP 30 SATHI KHALIL CODE TEMPLATE REPEAT KARA -->
+
     </div>
+
 </body>
 </html>
+
